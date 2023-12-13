@@ -1,10 +1,11 @@
-const API_BASE_URL = "https://api.noroff.dev/api/v1/auction"; // API base URL
+const API_BASE_URL = "https://api.noroff.dev/api/v1/auction";
+const PROXY_URL = "https://noroffcors.onrender.com/"; // Proxy server URL
 
 document.addEventListener("DOMContentLoaded", async () => {
   console.log("Profile page loaded."); // Log to check if the page loaded
 
   try {
-    const yourAccessToken = localStorage.getItem("your_access_token_key");
+    const yourAccessToken = localStorage.getItem("accessToken");
     const userName = localStorage.getItem("userName");
 
     if (!yourAccessToken || !userName) {
@@ -39,25 +40,24 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // Handle the "Change Avatar" functionality
       const avatarInput = document.getElementById("avatarInput");
-      avatarInput.addEventListener("change", async (event) => {
-        const newAvatarFile = event.target.files[0];
+      const updateAvatarBtn = document.getElementById("updateAvatarBtn");
 
-        // Check if a file is selected
-        if (newAvatarFile) {
-          // Use FormData to send the file in the request
-          const formData = new FormData();
-          formData.append("avatar", newAvatarFile);
+      updateAvatarBtn.addEventListener("click", async () => {
+        const newAvatarURL = avatarInput.value;
 
+        // Check if a URL is provided
+        if (newAvatarURL) {
           try {
-            // Make a PUT request to update the avatar
+            // Make a PUT request to update the avatar URL
             const updateAvatarResponse = await fetch(
-              `${API_BASE_URL}/profiles/${userName}/media`,
+              `${PROXY_URL}${API_BASE_URL}/profiles/${userName}/media`,
               {
                 method: "PUT",
                 headers: {
                   Authorization: `Bearer ${yourAccessToken}`,
+                  "Content-Type": "application/json", // Specify JSON content type
                 },
-                body: formData,
+                body: JSON.stringify({ avatar: newAvatarURL }), // Send URL in JSON format
               }
             );
 

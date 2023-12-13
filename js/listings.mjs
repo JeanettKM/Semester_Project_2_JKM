@@ -19,7 +19,11 @@ function displayLoading() {
 async function fetchListings(filter = {}) {
   try {
     const { _tag, _active } = filter;
-    const query = `?_tag=${_tag || ""}&_active=${_active || ""}`;
+    const sortByField = "title"; // replace with the desired field to sort by
+    const sortOrder = "asc"; // or "desc" for descending order
+    const query = `?_tag=${_tag || ""}&_active=${
+      _active || ""
+    }&sort=${sortByField}&sortOrder=${sortOrder}`;
     const response = await fetch(`${API_BASE_URL}/listings${query}`);
     if (response.ok) {
       const content = await response.json();
@@ -128,15 +132,18 @@ if (newAuctionForm) {
     const auctionTitle = document.getElementById("auctionTitle").value;
     const auctionDescription =
       document.getElementById("auctionDescription").value;
-
-    // Calculate endsAt to ensure it's not a past date or more than one year from now
-    const currentDate = new Date();
-    const oneYearFromNow = new Date();
-    oneYearFromNow.setFullYear(currentDate.getFullYear() + 1);
-    const endsAt = oneYearFromNow.toISOString();
+    const auctionImageURL = document.getElementById("auctionImageURL").value;
+    const auctionDeadline = document.getElementById("auctionDeadline").value;
 
     try {
-      await newListing(auctionTitle, auctionDescription, [], [], endsAt);
+      // Include the new fields in the newListing function
+      await newListing(
+        auctionTitle,
+        auctionDescription,
+        [],
+        [auctionImageURL],
+        new Date(auctionDeadline)
+      );
 
       // Update local data after successful creation
       const updatedListings = await fetchListings();
@@ -153,19 +160,32 @@ if (newAuctionForm) {
 export async function newListing(title, description, tags, media, endsAt) {
   try {
     const authenticationToken = localStorage.getItem("accessToken");
+    const requestBody = {
+      title,
+      description,
+      tags,
+      endsAt: endsAt.toISOString(), // Convert to ISO string
+    };
+
+    // Check if the media array is a valid array with URLs
+    if (media && Array.isArray(media) && media.length > 0) {
+      // Check if each URL in the media array is a valid URL
+      const isValidUrls = media.every((url) => isValidUrl(url));
+
+      if (isValidUrls) {
+        requestBody.media = media;
+      } else {
+        throw new Error("Invalid URL in the media array");
+      }
+    }
+
     const response = await fetch(`${API_BASE_URL}/listings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${authenticationToken}`,
       },
-      body: JSON.stringify({
-        title,
-        description,
-        tags,
-        media,
-        endsAt,
-      }),
+      body: JSON.stringify(requestBody),
     });
 
     if (response.ok) {
@@ -181,5 +201,19 @@ export async function newListing(title, description, tags, media, endsAt) {
     }
   } catch (error) {
     throw error;
+  }
+}
+
+// Function to check if a string is a valid URL
+function isValidUrl(url) {
+  try {
+    // Check if the URL is not empty or null before creating a new URL object
+    if (url && url.trim() !== "") {
+      new URL(url);
+      return true;
+    }
+    return false;
+  } catch (error) {
+    return false;
   }
 }
