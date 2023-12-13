@@ -1,8 +1,16 @@
+// bidding.mjs
 const API_BASE_URL = "https://api.noroff.dev/api/v1/auction";
 
 export async function placeBid(listingId, bidAmount) {
   try {
     const authenticationToken = localStorage.getItem("accessToken");
+
+    if (!authenticationToken) {
+      // If the user is not authenticated, prompt them to register or log in
+      alert("Please log in or register to place a bid.");
+      return;
+    }
+
     const response = await fetch(`${API_BASE_URL}/listings/${listingId}/bids`, {
       method: "POST",
       headers: {

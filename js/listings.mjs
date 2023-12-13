@@ -1,5 +1,8 @@
+// listings.mjs
+
 import { addBulmaCardStyling } from "./cardStyling.mjs";
-const API_BASE_URL = "https://api.noroff.dev/api/v1/auction"; // Replace with your actual API base URL
+
+const API_BASE_URL = "https://api.noroff.dev/api/v1/auction";
 
 let allListings = [];
 let thisPage = 1;
@@ -19,8 +22,8 @@ function displayLoading() {
 async function fetchListings(filter = {}) {
   try {
     const { _tag, _active } = filter;
-    const sortByField = "title"; // replace with the desired field to sort by
-    const sortOrder = "asc"; // or "desc" for descending order
+    const sortByField = "title";
+    const sortOrder = "asc";
     const query = `?_tag=${_tag || ""}&_active=${
       _active || ""
     }&sort=${sortByField}&sortOrder=${sortOrder}`;
@@ -126,35 +129,44 @@ if (searchBtn) {
   });
 }
 
+// Check if the user is authenticated and hide/show the form accordingly
 if (newAuctionForm) {
-  newAuctionForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const auctionTitle = document.getElementById("auctionTitle").value;
-    const auctionDescription =
-      document.getElementById("auctionDescription").value;
-    const auctionImageURL = document.getElementById("auctionImageURL").value;
-    const auctionDeadline = document.getElementById("auctionDeadline").value;
+  const authenticationToken = localStorage.getItem("accessToken");
+  if (authenticationToken) {
+    // User is authenticated, show the form
+    newAuctionForm.style.display = "block";
 
-    try {
-      // Include the new fields in the newListing function
-      await newListing(
-        auctionTitle,
-        auctionDescription,
-        [],
-        [auctionImageURL],
-        new Date(auctionDeadline)
-      );
+    newAuctionForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const auctionTitle = document.getElementById("auctionTitle").value;
+      const auctionDescription =
+        document.getElementById("auctionDescription").value;
+      const auctionImageURL = document.getElementById("auctionImageURL").value;
+      const auctionDeadline = document.getElementById("auctionDeadline").value;
 
-      // Update local data after successful creation
-      const updatedListings = await fetchListings();
-      allListings = updatedListings;
-      showMoreListings(loadMoreBtn);
+      try {
+        await newListing(
+          auctionTitle,
+          auctionDescription,
+          [],
+          [auctionImageURL],
+          new Date(auctionDeadline)
+        );
 
-      console.log("Auction created successfully!");
-    } catch (error) {
-      console.error("Error creating auction:", error);
-    }
-  });
+        // Update local data after successful creation
+        const updatedListings = await fetchListings();
+        allListings = updatedListings;
+        showMoreListings(loadMoreBtn);
+
+        console.log("Auction created successfully!");
+      } catch (error) {
+        console.error("Error creating auction:", error);
+      }
+    });
+  } else {
+    // User is not authenticated, hide the form
+    newAuctionForm.style.display = "none";
+  }
 }
 
 export async function newListing(title, description, tags, media, endsAt) {

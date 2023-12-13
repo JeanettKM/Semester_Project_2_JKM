@@ -6,6 +6,7 @@ const urlSearch = new URLSearchParams(window.location.search);
 const listingId = urlSearch.get("id");
 const authenticationToken = localStorage.getItem("accessToken");
 const listingDetailsContainer = document.getElementById("listingDetails");
+const placeBidForm = document.getElementById("placeBidForm");
 
 function fetchListingDetails() {
   fetch(
@@ -82,20 +83,26 @@ function fetchListingDetails() {
       // Handle bid placement button click
       const placeBidButton = document.getElementById("placeBidButton");
       placeBidButton.addEventListener("click", () => {
-        const bidAmountInput = document.getElementById("bidAmount");
-        const bidAmount = parseFloat(bidAmountInput.value);
+        if (authenticationToken) {
+          // User is authenticated, proceed with bid placement
+          const bidAmountInput = document.getElementById("bidAmount");
+          const bidAmount = parseFloat(bidAmountInput.value);
 
-        if (!isNaN(bidAmount)) {
-          placeBid(listingId, bidAmount)
-            .then(() => {
-              fetchListingDetails();
-              bidAmountInput.value = ""; // Clear the input field
-            })
-            .catch((error) => {
-              console.error("Error placing bid:", error);
-            });
+          if (!isNaN(bidAmount)) {
+            placeBid(listingId, bidAmount)
+              .then(() => {
+                fetchListingDetails();
+                bidAmountInput.value = ""; // Clear the input field
+              })
+              .catch((error) => {
+                console.error("Error placing bid:", error);
+              });
+          } else {
+            console.error("Invalid bid amount");
+          }
         } else {
-          console.error("Invalid bid amount");
+          // User is not authenticated, prompt them to log in or register
+          alert("Please log in or register to place a bid or view images.");
         }
       });
     })
