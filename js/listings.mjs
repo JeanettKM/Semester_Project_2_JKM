@@ -1,6 +1,6 @@
 // listings.mjs
 
-import { addBulmaCardStyling } from "./cardStyling.mjs";
+import { addBootstrapCardStyling } from "./cardStyling.mjs";
 
 const API_BASE_URL = "https://api.noroff.dev/api/v1/auction";
 
@@ -45,7 +45,7 @@ function showMoreListings(button = null) {
   listingEnd = listingStart + amountOfListings;
 
   const listingsToShow = allListings.slice(listingStart, listingEnd);
-  addBulmaCardStyling(auctionListings, listingsToShow, true);
+  addBootstrapCardStyling(auctionListings, listingsToShow, true);
 
   if (listingEnd < allListings.length) {
     thisPage++;
@@ -83,7 +83,7 @@ function filterListings(selectedFilter) {
   }
 
   if (selectedFilter === "all") {
-    addBulmaCardStyling(
+    addBootstrapCardStyling(
       auctionListings,
       allListings.slice(0, amountOfListings)
     );
@@ -109,7 +109,7 @@ function searchListings(query, listings) {
 
   thisPage = 1;
 
-  addBulmaCardStyling(
+  addBootstrapCardStyling(
     auctionListings,
     filterResults.slice(0, amountOfListings)
   );

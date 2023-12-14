@@ -32,26 +32,29 @@ function fetchListingDetails() {
       const listingCard = document.createElement("div");
       listingCard.classList.add("card", "listing-card");
       listingCard.innerHTML = `
-            <div class="card-image is-centered m-2">
-                <figure class="has-text-centered">
-                    ${
-                      listing.media && listing.media.length > 0
-                        ? `<img class="listing-image" src="${listing.media[0]}" alt="Listing Media">`
-                        : ""
-                    }
-                </figure>
-            </div>
-            <div class="card-content">
-                <h2 class="title mb-6">${listing.title}</h2>
-                <p>${listing.description}</p>
-                <p class="mt-6">Tags: ${listing.tags.join(", ")}</p>
-                <p>Ends At: ${new Date(listing.endsAt).toLocaleString()}</p>
-                <section class="m-3">
-                    <div>
-                        <p>Bids: ${listing._count.bids}</p>
-                    </div>
-                </section>
-            </div>
+      <div class="card m-2">
+      <div class="card-image text-center">
+          <figure class="col-md-7 mx-auto m-3">
+              ${
+                listing.media && listing.media.length > 0
+                  ? `<img class="img-fluid" src="${listing.media[0]}" alt="Listing Media">`
+                  : ""
+              }
+          </figure>
+      </div>
+      <div class="card-body">
+          <h2 class="card-title mb-4">${listing.title}</h2>
+          <p class="card-text">${listing.description}</p>
+          <p class="mt-4">Tags: ${listing.tags.join(", ")}</p>
+          <p>Ends At: ${new Date(listing.endsAt).toLocaleString()}</p>
+          <section class="m-3">
+              <div>
+                  <p>Bids: ${listing._count.bids}</p>
+              </div>
+          </section>
+      </div>
+  </div>
+  
             `;
 
       listingDetailsContainer.innerHTML = "";

@@ -1,48 +1,58 @@
 /**
- * Auction Listings styling using Bulma CSS framework
+ * Auction Listings styling using Bootstrap classes
  */
-export function addBulmaCardStyling(targetElement, listings, isPreview) {
+export function addBootstrapCardStyling(targetElement, listings, isPreview) {
   targetElement.innerHTML = "";
 
   if (listings.length === 0) {
     targetElement.innerHTML = "No listings found.";
   } else {
-    listings.forEach((listing) => {
+    listings.forEach((listing, index) => {
       const card = document.createElement("div");
-      card.className = "column";
+      card.className = "col-md-4 mb-4"; // Adjusted width to col-md-4
       card.innerHTML = `
-        <div class="card">
-          <div class="card-content has-text-centered">
-            <p class="title is-4">${listing.title}</p>
-            <div class="content">${listing.description}</div>
-            <p>Tags: ${listing.tags.join(", ")}</p>
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column text-center">
+            <h5 class="card-title">${listing.title}</h5>
+            <p class="card-text">${listing.description}</p>
+            <p class="card-text"><small class="text-muted">Tags: ${listing.tags.join(
+              ", "
+            )}</small></p>
             ${
               listing.media && listing.media.length > 0
                 ? `
               <div class="media">
-                <div class="media-content feed-img">
-                  <img src="${listing.media[0]}" alt="Listing Media">
-                </div>
+                <img src="${listing.media[0]}" class="card-img-top" alt="Listing Media">
               </div>
             `
                 : ""
             }
-            <p>Ends At: ${new Date(listing.endsAt).toLocaleString()}</p>
-            <section class="m-3">
-              <div>
-                <p>Bids: ${listing._count.bids}</p>
-              </div>
-            </section>
-            <div class="mt-4">
+            <p class="card-text mt-auto">Ends At: ${new Date(
+              listing.endsAt
+            ).toLocaleString()}</p>
+            <div class="mt-3">
+              <p class="card-text">Bids: ${listing._count.bids}</p>
+            </div>
+            <div class="mt-3">
               <a href="listing-detail.html?id=${
                 listing.id
-              }" class="button is-primary is-outlined">View Details</a>
+              }" class="btn btn-primary">View Details</a>
             </div>
           </div>
         </div>
       `;
 
-      targetElement.appendChild(card);
+      // If it's the first card in a row, create a new row
+      if (index % 3 === 0) {
+        const row = document.createElement("div");
+        row.className = "row";
+        targetElement.appendChild(row);
+      }
+
+      // Append the card to the last row
+      const rows = targetElement.getElementsByClassName("row");
+      const lastRow = rows[rows.length - 1];
+      lastRow.appendChild(card);
     });
   }
 }
