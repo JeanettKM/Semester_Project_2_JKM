@@ -61,6 +61,7 @@
                     name="name"
                     class="form-control"
                     required
+                    aria-label="Username"
                   />
                 </div>
                 <div class="form-group">
@@ -71,6 +72,7 @@
                     name="email"
                     class="form-control"
                     required
+                    aria-label="Email"
                   />
                 </div>
                 <div class="form-group">
@@ -81,6 +83,7 @@
                     name="password"
                     class="form-control"
                     required
+                    aria-label="Password"
                   />
                 </div>
                 <div class="form-group text-center">
@@ -90,6 +93,7 @@
                   id="passwordRegistrationError"
                   class="alert alert-danger m-6 text-center m-4 d-none"
                   role="alert"
+                  aria-live="assertive"
                 ></div>
               </form>
               <div class="text-center">
@@ -102,8 +106,12 @@
         </div>
       </section>
     </main>
-
+  
     <footer class="fixed-bottom bg-success-light text-white py-2">
+      <div class="container text-center">
+        <p>&copy; 2023 Jeanett Melsom.</p>
+      </div>
+    </footer>
       <div class="container text-center">
         <p>&copy; 2023 Jeanett Melsom.</p>
       </div>
@@ -124,6 +132,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/registration2.mjs"></script>
+    <script type="module" src="/js/registration1.mjs"></script>
   </body>
 </html>

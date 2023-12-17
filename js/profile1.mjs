@@ -1,19 +1,21 @@
+// profile2.mjs
+
+import { updateNavbar } from "./navbar.mjs";
+
 const API_BASE_URL = "https://api.noroff.dev/api/v1/auction";
 const PROXY_URL = "https://noroffcors.onrender.com/"; // Proxy server URL
 
 document.addEventListener("DOMContentLoaded", async () => {
-  console.log("Profile page loaded."); // Log to check if the page loaded
+  console.log("Profile page loaded.");
 
   try {
     const yourAccessToken = localStorage.getItem("accessToken");
     const userName = localStorage.getItem("userName");
 
-    if (!yourAccessToken || !userName) {
-      console.error("Access token or user name not found.");
-      return;
-    }
-
     console.log("Access token and user name found:", yourAccessToken, userName);
+
+    // Add console log to check access token before fetch
+    console.log("Access token before fetch:", yourAccessToken);
 
     const response = await fetch(`${API_BASE_URL}/profiles/${userName}`, {
       headers: {
@@ -41,9 +43,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Handle the "Change Avatar" functionality
       const avatarInput = document.getElementById("avatarInput");
       const updateAvatarBtn = document.getElementById("updateAvatarBtn");
+      const avatarURLError = document.getElementById("avatarURLError");
 
       updateAvatarBtn.addEventListener("click", async () => {
         const newAvatarURL = avatarInput.value;
+
+        // Reset previous error message
+        avatarURLError.textContent = "";
+        avatarURLError.style.display = "none";
 
         // Check if a URL is provided
         if (newAvatarURL) {
@@ -55,7 +62,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 method: "PUT",
                 headers: {
                   Authorization: `Bearer ${yourAccessToken}`,
-                  "Content-Type": "application/json", // Specify JSON content type
+                  "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ avatar: newAvatarURL }), // Send URL in JSON format
               }
@@ -66,14 +73,24 @@ document.addEventListener("DOMContentLoaded", async () => {
               const updatedProfileData = await updateAvatarResponse.json();
               userAvatarElement.src = updatedProfileData.avatar || "";
             } else {
+              // Display error message
+              avatarURLError.textContent = "Must be a publicly accessible URL";
+              avatarURLError.style.display = "block";
               console.error(
                 "Failed to update avatar:",
                 await updateAvatarResponse.json()
               );
             }
           } catch (error) {
+            // Display error message
+            avatarURLError.textContent = "Error updating avatar";
+            avatarURLError.style.display = "block";
             console.error("Error updating avatar:", error);
           }
+        } else {
+          // Display error message if URL is not provided
+          avatarURLError.textContent = "Image URL is required";
+          avatarURLError.style.display = "block";
         }
       });
     } else {

@@ -6,6 +6,10 @@ body {
   min-width: 320px;
 }
 
+h1 {
+  font-size: 30px;
+}
+
 nav {
   padding: 35px;
 }
@@ -13,33 +17,42 @@ nav {
 img {
   border-radius: 5px;
 }
+
 #profileButton {
   margin: 20px;
 }
 
-.image-boarder-radius {
-  border-radius: 5px;
-  max-width: 500px;
-  margin: 20px;
+.brand-left {
+  margin-right: auto;
 }
 
-.feed-img {
-  max-width: 50%;
-  margin: 10px;
+#listingDetails {
+  margin-bottom: 60px; /* Adjust the value based on your footer's height */
+}
+
+#formInputWidth {
+  min-width: 300px;
+  max-width: 500px;
+}
+
+#avatarInput {
+  min-width: 150px;
+  max-width: 200px;
+}
+
+#updateAvatarBtn {
+  min-width: 100px;
+  max-width: 200px;
 }
 
 .media {
   justify-content: center;
 }
 
-.footerfix {
+.custom-width {
+  width: 300px;
+}
+
+.footer-fix {
   flex-grow: 1;
-}
-
-.ownerColor {
-  color: rgb(114, 161, 155);
-}
-
-.feedFormtext {
-  color: rgb(79, 151, 128);
 }

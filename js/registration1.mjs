@@ -1,6 +1,6 @@
 // registration2.mjs
 
-const API_BASE_URL = "https://api.noroff.dev/api/v1/auction"; // API base URL
+const API_BASE_URL = "https://api.noroff.dev/api/v1/auction";
 
 document
   .getElementById("registrationForm")
@@ -55,9 +55,13 @@ document
       });
 
       if (response.ok) {
-        const responseData = await response.json();
+        const content = await response.json();
         // Registration successful, you may handle the response data as needed
-        console.log("Registration successful:", responseData);
+        console.log("Registration successful:", content);
+
+        // Store user data in localStorage
+        localStorage.setItem("accessToken", content.accessToken);
+        localStorage.setItem("userName", content.name);
 
         // Redirect to the profile page
         window.location.href = "profile2.html";

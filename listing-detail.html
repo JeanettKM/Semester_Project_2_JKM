@@ -14,63 +14,56 @@
     />
     <link rel="icon" href="data:," rel="Stopping GET favicon error" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+      body {
+        padding-bottom: 70px; /* Adjust the value based on your footer's height */
+      }
+    </style>
   </head>
 
   <body class="bg-light">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-info">
         <a class="navbar-brand" href="index2.html">Auction House</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="listings.html">View Auctions</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index2.html">Log in</a>
-            </li>
+            <li class="nav-item" id="navLoginFunction"></li>
           </ul>
         </div>
       </nav>
-      <section class="bg-info text-white py-4">
+      <section class="bg-info p-2">
         <div class="container">
-          <h1 class="text-center">Listing Details</h1>
+          <h1 class="title text-center text-white">Auction details</h1>
         </div>
       </section>
-      <ul class="breadcrumb justify-content-center">
-        <li class="breadcrumb-item">
-          <a href="profile2.html">Your profile</a>
-        </li>
-        <li class="breadcrumb-item">
-          <a href="listings.html">Auction listings</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-          Currently viewing
-        </li>
-      </ul>
     </header>
-    <main class="footerfix">
-      <section
-        class="container mx-auto text-center"
-        id="listingDetails"
-      ></section>
+    <main>
+      <section class="container mx-auto text-center" id="listingDetails">
+        <div class="container mt-3" id="errorContainer">
+          <div
+            class="alert alert-danger alert-dismissible fade show"
+            role="alert"
+          >
+            Please try again. A bid has to be made before the listing's
+            deadline, and the bid amount has to be greater than the previous
+            bid.
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="footer fixed-bottom bg-info text-white py-2">
       <div class="container text-center">
         <p>&copy; 2023 Jeanett Melsom.</p>
       </div>
     </footer>
-    <!-- Add Bootstrap JS and Popper.js for Bootstrap components -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
