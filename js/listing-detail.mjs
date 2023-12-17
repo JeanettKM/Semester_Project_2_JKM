@@ -49,7 +49,7 @@ function fetchListingDetails() {
           <p>Ends At: ${new Date(listing.endsAt).toLocaleString()}</p>
           <section class="m-3">
               <div>
-                  <p>Bids: ${listing._count.bids}</p>
+                  <p>Amount of bids: ${listing._count.bids}</p>
               </div>
           </section>
       </div>
@@ -65,18 +65,19 @@ function fetchListingDetails() {
       placeBidForm.innerHTML = `
         <div class="field is-horizontal">
           <div class="field-label is-normal">
-            <label class="label">Place Bid:</label>
+            <label class="label m-3">Place Bid:</label>
           </div>
           <div class="field-body">
             <div class="field">
               <div class="control">
                 <input class="input" type="number" placeholder="Enter bid amount" id="bidAmount" required />
+                <div class="container mt-3" id="errorContainer">
               </div>
             </div>
           </div>
           <div class="field">
             <div class="control">
-              <button class="button is-link" type="button" id="placeBidButton">Place Bid</button>
+              <button class="btn btn-primary m-3" type="button" id="placeBidButton">Place Bid</button>
             </div>
           </div>
         </div>
@@ -98,10 +99,10 @@ function fetchListingDetails() {
                 bidAmountInput.value = ""; // Clear the input field
               })
               .catch((error) => {
-                console.error("Error placing bid:", error);
+                handleErrors(error);
               });
           } else {
-            console.error("Invalid bid amount");
+            handleErrors(new Error("Invalid bid amount"));
           }
         } else {
           // User is not authenticated, prompt them to log in or register
@@ -110,7 +111,7 @@ function fetchListingDetails() {
       });
     })
     .catch((error) => {
-      console.error("Error fetching listing details:", error);
+      handleErrors(error);
     });
 
   // Example usage of getBidsForListing function
@@ -120,8 +121,26 @@ function fetchListingDetails() {
       console.log("Bids Data:", bidsData);
     })
     .catch((error) => {
-      console.error("Error retrieving bids:", error);
+      handleErrors(error);
     });
+}
+
+// Function to handle errors and display messages
+function handleErrors(error) {
+  console.error("Error handling:", error);
+
+  // Access the error container in the HTML
+  const errorContainer = document.getElementById("errorContainer");
+
+  // Clear existing error messages
+  errorContainer.innerHTML = "";
+
+  // Display a custom error message
+  const errorMessage = document.createElement("div");
+  errorMessage.classList.add("alert", "alert-danger");
+  errorMessage.textContent =
+    "Please try again. A bid have to be made before the listings deadline, and the bid amount has to be greater than the previous bid.";
+  errorContainer.appendChild(errorMessage);
 }
 
 // Show the listings when the page has loaded

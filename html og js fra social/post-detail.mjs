@@ -94,7 +94,7 @@ function fetchPostContent() {
       if (userEmail === post.author.email) {
         const editBtn = document.createElement("button");
         editBtn.id = "editBtn";
-        editBtn.className = "button is-primary mt-4";
+        editBtn.className = "button is-info mt-4";
         editBtn.textContent = "Edit Post";
         postCard.querySelector(".card-content").appendChild(editBtn);
         /**

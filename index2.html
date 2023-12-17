@@ -19,6 +19,30 @@
   </head>
   <body class="bg-light">
     <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand" href="#">Auction House</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="listings.html">View Auctions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="registration2.html">Register</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
       <section class="bg-info text-white text-center py-4">
         <div class="container">
           <h1>Welcome to the Auction House - Log in!</h1>
@@ -60,7 +84,7 @@
               </div>
               <div id="displayError" class="text-danger mb-4"></div>
               <div class="form-group text-center">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-info">Login</button>
               </div>
             </form>
 
@@ -74,6 +98,7 @@
         </div>
       </section>
     </main>
+
     <footer class="fixed-bottom bg-info text-white text-center py-2">
       <div class="container">
         <p>&copy; 2023 Jeanett Melsom.</p>

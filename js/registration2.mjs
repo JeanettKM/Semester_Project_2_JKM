@@ -11,7 +11,35 @@ document
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
+    // Validation for email
+    const emailRegex = /^[\w-]+(\.[\w-]+)*@(noroff\.no|stud\.noroff\.no)$/;
+    const isValidEmail = emailRegex.test(email);
+
+    // Validation for password
+    const isValidPassword = password.length >= 8;
+
     try {
+      const errorContainer = document.getElementById(
+        "passwordRegistrationError"
+      );
+      errorContainer.classList.add("d-none"); // Hide the error message by default
+
+      if (!isValidEmail) {
+        // Email validation failed
+        errorContainer.textContent =
+          "Please use a valid @noroff.no or @stud.noroff.no email address.";
+        errorContainer.classList.remove("d-none"); // Show the error message
+        return;
+      }
+
+      if (!isValidPassword) {
+        // Password validation failed
+        errorContainer.textContent =
+          "Password must be at least 8 characters long.";
+        errorContainer.classList.remove("d-none"); // Show the error message
+        return;
+      }
+
       const registrationData = {
         name: username,
         email: email,
@@ -37,12 +65,14 @@ document
         // Registration failed, handle the error
         const errorData = await response.json();
         console.error("Registration failed:", errorData);
-        document.getElementById("emailRegistrationError").textContent =
+        errorContainer.textContent =
           errorData.message || "Registration failed. Please try again.";
+        errorContainer.classList.remove("d-none"); // Show the error message
       }
     } catch (error) {
       console.error("Error during registration:", error);
-      document.getElementById("emailRegistrationError").textContent =
+      errorContainer.textContent =
         "An error occurred during registration. Please try again.";
+      errorContainer.classList.remove("d-none"); // Show the error message
     }
   });

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   userLoginForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const username = document.getElementById("username").value; // Change 'username' to the correct input ID
+    const username = document.getElementById("username").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
@@ -15,13 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const displayError = document.getElementById("displayError");
       displayError.textContent =
-        "Incorrect Email or password, please try again.";
+        "Incorrect email or password. Please try again.";
     }
   });
 });
 
 export async function userLoginAction(username, email, password) {
-  const userInfoRequest = { name: username, email, password }; // Change 'name' to the correct field name
+  const userInfoRequest = { name: username, email, password };
 
   try {
     const response = await fetch(

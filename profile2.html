@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="View your profile and posts" />
     <title>Your Profile</title>
-    <!-- Add Bootstrap CDN -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -15,36 +14,42 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="icon" href="data:," rel="Stopping GET favicon error" />
   </head>
-
   <body class="bg-success-light">
     <header>
-      <section class="bg-primary">
-        <div class="container">
-          <h1 class="text-center text-white">Your Profile</h1>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand" href="index2.html">Auction House</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index2.html">Log out</a>
+            </li>
+          </ul>
         </div>
-      </section>
-      <nav class="breadcrumb justify-content-center" aria-label="breadcrumbs">
-        <ul class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index2.html">Log out</a></li>
-          <li class="breadcrumb-item active" aria-current="page">
-            <a href="profile2.html">Profile</a>
-          </li>
-        </ul>
-      </nav>
     </header>
     <main class="footerfix">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <h1 class="text-center">
-            <a href="listings.html">View all listings</a>
-          </h1>
-        </div>
+      <section class="bg-info">
+        <div class="row justify-content-center bg-cyan>
+          <div class="col-md-6 bg-info">
+            <h1 class="text-center text-white"> Your Profile
+            </h1>
+          </div>
+      </section>
       </div>
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <div id="profileContent" class="container text-center col-md-6">
-            <p class="m-6">
-              <strong>Profile picture:</strong>
+          <div id="profileContent" class="container text-center col-md-6 mt-3">
+            <p class="m-2">
               <img
                 id="userAvatar"
                 alt="User Avatar"
@@ -52,7 +57,7 @@
                 class="img-fluid"
               />
             </p>
-            <p class="m-6">
+            <p class="m-4 text-sm">
               <strong>Change Profile picture:</strong>
               <br />
               <input
@@ -62,7 +67,7 @@
                 class="form-control"
                 placeholder="Image URL"
               />
-              <button id="updateAvatarBtn" class="btn btn-primary m-6">
+              <button id="updateAvatarBtn" class="btn btn-info btn-sm m-6">
                 Update picture
               </button>
             </p>
@@ -73,12 +78,12 @@
         </div>
       </div>
       <section>
-        <div class="container text-center col-md-6">
-          <a href="listings.html"><h2>View your listings</h2></a>
+        <div class="container text-center col-md-6 mt-4">
+          <a href="listings.html"><h3>View Auction listings</h3></a>
         </div>
       </section>
     </main>
-    <footer class="fixed-bottom bg-primary text-white">
+    <footer class="fixed-bottom bg-info text-white">
       <div class="container text-center">
         <p>&copy; 2023 Jeanett Melsom.</p>
       </div>

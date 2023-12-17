@@ -36,7 +36,7 @@ export function addBootstrapCardStyling(targetElement, listings, isPreview) {
             <div class="mt-3">
               <a href="listing-detail.html?id=${
                 listing.id
-              }" class="btn btn-primary">View Details</a>
+              }" class="btn btn-info">View Details</a>
             </div>
           </div>
         </div>
