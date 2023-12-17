@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 function searchListings(query, listings) {
   thisPage = 1;
 
-  // Apply search directly to the listings array
+  // Apply Search
   const searchResults = listings.filter((listing) => {
     const listingTitle = listing.title.toLowerCase();
     const listingTags = listing.tags.join(", ").toLowerCase();
@@ -105,9 +105,9 @@ if (newAuctionForm) {
     // Function to display or hide the error message for the image URL
     function displayError(fieldName, message) {
       const errorContainer = document.getElementById(`${fieldName}Error`);
-      errorContainer.textContent = message; // Set the error message content
+      errorContainer.textContent = message;
 
-      // Toggle the visibility based on the presence of an error message
+      // show error message if error occurs
       if (message) {
         errorContainer.style.display = "block";
       } else {
@@ -130,27 +130,27 @@ if (newAuctionForm) {
       displayError("auctionDeadline", "");
 
       try {
-        // Validate title
+        // check title
         if (!auctionTitle.trim()) {
           throw new Error("Title is required.");
         }
 
-        // Validate description
+        // check description
         if (!auctionDescription.trim()) {
           throw new Error("Description is required.");
         }
 
-        // Validate image URL
+        // check image URL
         if (!auctionImageURL.trim()) {
           throw new Error("Image URL is required.");
         }
 
-        // Validate image URL format
+        // check image URL format
         if (!isValidUrl(auctionImageURL)) {
           throw new Error("Please enter a valid image URL.");
         }
 
-        // Validate deadline
+        // check deadline
         const currentDateTime = new Date();
         const selectedDateTime = new Date(auctionDeadline);
         if (selectedDateTime <= currentDateTime) {
@@ -199,18 +199,17 @@ export async function newListing(title, description, tags, media, endsAt) {
       title,
       description,
       tags,
-      endsAt: endsAt.toISOString(), // Convert to ISO string
+      endsAt: endsAt.toISOString(),
     };
 
-    // Check if the media array is a valid array with URLs
+    // Check if the media array is a valid URL
     if (media && Array.isArray(media) && media.length > 0) {
-      // Check if each URL in the media array is a valid URL
       const isValidUrls = media.every((url) => isValidUrl(url));
 
       if (isValidUrls) {
         requestBody.media = media;
       } else {
-        throw new Error("Invalid URL in the media array");
+        throw new Error("Invalid URL");
       }
     }
 
@@ -226,12 +225,11 @@ export async function newListing(title, description, tags, media, endsAt) {
     if (response.ok) {
       const content = await response.json();
       console.log("Listing created!", content);
-      // Optionally, you can handle the response or redirect the user
     } else {
       const errorContent = await response.json();
       console.error("Error creating listing:", errorContent);
       throw new Error(
-        `Could not create the new listing. ${JSON.stringify(errorContent)}`
+        `Cant create new Listing. ${JSON.stringify(errorContent)}`
       );
     }
   } catch (error) {
@@ -239,10 +237,8 @@ export async function newListing(title, description, tags, media, endsAt) {
   }
 }
 
-// Function to check if a string is a valid URL
 function isValidUrl(url) {
   try {
-    // Check if the URL is not empty or null before creating a new URL object
     if (url && url.trim() !== "") {
       new URL(url);
       return true;

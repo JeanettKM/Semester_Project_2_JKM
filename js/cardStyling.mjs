@@ -1,15 +1,18 @@
-/**
- * Auction Listings styling using Bootstrap classes
- */
 export function addBootstrapCardStyling(targetElement, listings, isPreview) {
   targetElement.innerHTML = "";
 
+  /**
+   * Display a message if no listings are found
+   */
   if (listings.length === 0) {
     targetElement.innerHTML = "No listings found.";
   } else {
+    /**
+     * create a Bootstrap-styled card
+     */
     listings.forEach((listing, index) => {
       const card = document.createElement("div");
-      card.className = "col-md-4 mb-4"; // Adjusted width to col-md-4
+      card.className = "col-md-4 mb-4";
       card.innerHTML = `
         <div class="card h-100">
           <div class="card-body d-flex flex-column text-center">
@@ -42,14 +45,18 @@ export function addBootstrapCardStyling(targetElement, listings, isPreview) {
         </div>
       `;
 
-      // If it's the first card in a row, create a new row
+      /**
+       * If it's the first card in a row, create a new row
+       */
       if (index % 3 === 0) {
         const row = document.createElement("div");
         row.className = "row";
         targetElement.appendChild(row);
       }
 
-      // Append the card to the last row
+      /**
+       * Append the card to the last row
+       */
       const rows = targetElement.getElementsByClassName("row");
       const lastRow = rows[rows.length - 1];
       lastRow.appendChild(card);

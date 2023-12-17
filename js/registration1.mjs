@@ -1,5 +1,3 @@
-// registration2.mjs
-
 const API_BASE_URL = "https://api.noroff.dev/api/v1/auction";
 
 document
@@ -22,13 +20,13 @@ document
       const errorContainer = document.getElementById(
         "passwordRegistrationError"
       );
-      errorContainer.classList.add("d-none"); // Hide the error message by default
+      errorContainer.classList.add("d-none"); // Hide the error message
 
       if (!isValidEmail) {
         // Email validation failed
         errorContainer.textContent =
           "Please use a valid @noroff.no or @stud.noroff.no email address.";
-        errorContainer.classList.remove("d-none"); // Show the error message
+        errorContainer.classList.remove("d-none");
         return;
       }
 
@@ -36,7 +34,7 @@ document
         // Password validation failed
         errorContainer.textContent =
           "Password must be at least 8 characters long.";
-        errorContainer.classList.remove("d-none"); // Show the error message
+        errorContainer.classList.remove("d-none");
         return;
       }
 
@@ -56,7 +54,7 @@ document
 
       if (response.ok) {
         const content = await response.json();
-        // Registration successful, you may handle the response data as needed
+        // Registration successful
         console.log("Registration successful:", content);
 
         // Store user data in localStorage
@@ -66,17 +64,17 @@ document
         // Redirect to the profile page
         window.location.href = "profile2.html";
       } else {
-        // Registration failed, handle the error
+        // Registration failed
         const errorData = await response.json();
         console.error("Registration failed:", errorData);
         errorContainer.textContent =
           errorData.message || "Registration failed. Please try again.";
-        errorContainer.classList.remove("d-none"); // Show the error message
+        errorContainer.classList.remove("d-none");
       }
     } catch (error) {
       console.error("Error during registration:", error);
       errorContainer.textContent =
         "An error occurred during registration. Please try again.";
-      errorContainer.classList.remove("d-none"); // Show the error message
+      errorContainer.classList.remove("d-none");
     }
   });

@@ -7,14 +7,21 @@ const listingId = urlSearch.get("id");
 const authenticationToken = localStorage.getItem("accessToken");
 const listingDetailsContainer = document.getElementById("listingDetails");
 
-// Ensure listingId is not null before making API calls
+/**
+ * Ensure listingId is not null before making API calls
+ */
 if (listingId !== null) {
   fetchListingDetails();
 } else {
   console.error("Listing ID is null. Cannot fetch listing details.");
-  // Handle the error or display a message to the user
+  /**
+   * Handle the error or display a message to the user
+   */
 }
 
+/**
+ * Fetch listing details from the API
+ */
 function fetchListingDetails() {
   fetch(
     `https://api.noroff.dev/api/v1/auction/listings/${listingId}?_seller=true&_bids=true`,
@@ -39,13 +46,19 @@ function fetchListingDetails() {
       const now = new Date();
       const endsAt = new Date(listing.endsAt);
 
-      // Check if the listing has ended
+      /**
+       * Check if the listing has ended
+       */
       if (now > endsAt) {
         handleListingEnded();
       } else {
-        // Continue with rendering the listing details
+        /**
+         * Continue with rendering the listing details
+         */
 
-        // Find the highest bid
+        /**
+         * Find the highest bid
+         */
         const highestBid = findHighestBid(listing.bids);
 
         const listingCard = document.createElement("div");
@@ -81,7 +94,9 @@ function fetchListingDetails() {
         listingDetailsContainer.innerHTML = "";
         listingDetailsContainer.appendChild(listingCard);
 
-        // Add bid placement form
+        /**
+         * Add bid placement form
+         */
         const placeBidForm = document.createElement("form");
         placeBidForm.innerHTML = `
           <div class="field is-horizontal">
@@ -105,11 +120,15 @@ function fetchListingDetails() {
         `;
         listingDetailsContainer.appendChild(placeBidForm);
 
-        // Handle bid placement button click
+        /**
+         * bid placement button click
+         */
         const placeBidButton = document.getElementById("placeBidButton");
         placeBidButton.addEventListener("click", () => {
           if (authenticationToken) {
-            // User is authenticated, proceed with bid placement
+            /**
+             * User is authenticated, proceed with bid placement
+             */
             const bidAmountInput = document.getElementById("bidAmount");
             const bidAmount = parseFloat(bidAmountInput.value);
 
@@ -117,7 +136,7 @@ function fetchListingDetails() {
               placeBid(listingId, bidAmount)
                 .then(() => {
                   fetchListingDetails();
-                  bidAmountInput.value = ""; // Clear the input field
+                  bidAmountInput.value = "";
                 })
                 .catch((error) => {
                   handleErrors(error);
@@ -126,15 +145,18 @@ function fetchListingDetails() {
               handleErrors(new Error("Invalid bid amount"));
             }
           } else {
-            // User is not authenticated, prompt them to log in or register
+            /**
+             * User is not authenticated, prompt them to log in or register
+             */
             alert("Please log in or register to place a bid or view images.");
           }
         });
 
-        // Example usage of getBidsForListing function
         getBidsForListing(listingId)
           .then((bidsData) => {
-            // Process and display the bidsData as needed
+            /**
+             * Process and display the bidsData as needed
+             */
             console.log("Bids Data:", bidsData);
           })
           .catch((error) => {
@@ -147,7 +169,9 @@ function fetchListingDetails() {
     });
 }
 
-// Helper function to find the highest bid
+/**
+ * find the highest bid
+ */
 function findHighestBid(bids) {
   return bids.reduce((highestBid, currentBid) => {
     return currentBid.amount > (highestBid ? highestBid.amount : 0)
@@ -156,17 +180,25 @@ function findHighestBid(bids) {
   }, null);
 }
 
-// Function to handle errors and display messages
+/**
+ * Function to handle errors and display messages
+ */
 function handleErrors(error) {
   console.error("Error handling:", error);
 
-  // Access the error container in the HTML
+  /**
+   * Access the error container in the HTML
+   */
   const errorContainer = document.getElementById("errorContainer");
 
-  // Clear existing error messages
+  /**
+   * Clear existing error messages
+   */
   errorContainer.innerHTML = "";
 
-  // Display a custom error message
+  /**
+   * Display error message
+   */
   const errorMessage = document.createElement("div");
   errorMessage.classList.add("alert", "alert-danger");
   errorMessage.textContent =
@@ -174,17 +206,27 @@ function handleErrors(error) {
   errorContainer.appendChild(errorMessage);
 }
 
-// Function to handle the case when the listing has ended
+/**
+ * Function to handle the case when the listing has ended
+ */
 function handleListingEnded() {
-  // Access the error container in the HTML
+  /**
+   * Access the error container in the HTML
+   */
   const errorContainer = document.getElementById("errorContainer");
 
-  // Check if the error container exists
+  /**
+   * Check if the error container exists
+   */
   if (errorContainer) {
-    // Clear existing error messages
+    /**
+     * Clear error messages
+     */
     errorContainer.innerHTML = "";
 
-    // Display a custom error message
+    /**
+     * Display error message
+     */
     const errorMessage = document.createElement("div");
     errorMessage.classList.add("alert", "alert-danger");
     errorMessage.textContent =

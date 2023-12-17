@@ -18,7 +18,9 @@ This project covers the front-end application for the API. The API functionality
 
 ### Hosting Services
 
-- Netlify
+- Netlify: https://semesterproject2jkm.netlify.app/
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0936ca11-25ed-4d82-b38f-898328374662/deploy-status)](https://app.netlify.com/sites/semesterproject2jkm/deploys)
 
 ### Used Languages
 

@@ -1,4 +1,3 @@
-// bidding.mjs
 const API_BASE_URL = "https://api.noroff.dev/api/v1/auction";
 
 export async function placeBid(listingId, bidAmount) {
@@ -6,7 +5,6 @@ export async function placeBid(listingId, bidAmount) {
     const authenticationToken = localStorage.getItem("accessToken");
 
     if (!authenticationToken) {
-      // If the user is not authenticated, prompt them to register or log in
       alert("Please log in or register to place a bid.");
       return;
     }
@@ -25,7 +23,6 @@ export async function placeBid(listingId, bidAmount) {
     if (response.ok) {
       const bidData = await response.json();
       console.log("Bid placed successfully!", bidData);
-      // Optionally, you can handle the response or redirect the user
     } else {
       const errorContent = await response.json();
       console.error("Error placing bid:", errorContent);
@@ -44,20 +41,16 @@ export async function getBidsForListing(listingId) {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        // Add any authentication headers if needed
       },
     });
 
     if (response.ok) {
       const bidsData = await response.json();
       console.log("Bids retrieved successfully!", bidsData);
-      // Optionally, you can return the bidsData or use it as needed
     } else {
       const errorContent = await response.json();
       console.error("Error retrieving bids:", errorContent);
-      throw new Error(
-        `Could not retrieve bids. ${JSON.stringify(errorContent)}`
-      );
+      throw new Error(`Could not find bids. ${JSON.stringify(errorContent)}`);
     }
   } catch (error) {
     throw error;

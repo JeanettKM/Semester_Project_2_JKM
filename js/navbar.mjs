@@ -49,7 +49,7 @@ function updateNavbarForListings(authenticationToken, navLoginFunction) {
           </div>
         </nav>
       `;
-    // Attach event listener for logout
+    // Event listener for logout
     const logoutLink = document.getElementById("loginLogoutLink");
     logoutLink.addEventListener("click", () => {
       // Remove the authentication token
@@ -85,7 +85,7 @@ function updateNavbarForListings(authenticationToken, navLoginFunction) {
 }
 
 function updateNavbarForListingDetail(authenticationToken, navLoginFunction) {
-  // Customize for listing-detail.html
+  // function for listing-detail.html
   if (authenticationToken) {
     // Display the logout button
     navLoginFunction.innerHTML = `
@@ -155,7 +155,7 @@ function updateNavbarForListingDetail(authenticationToken, navLoginFunction) {
 }
 
 function updateNavbarForProfile(authenticationToken, navLoginFunction) {
-  // Customize for profile2.html
+  // function for profile2.html
   if (authenticationToken) {
     // Display the logout button
     navLoginFunction.innerHTML = `
@@ -183,7 +183,7 @@ function updateNavbarForProfile(authenticationToken, navLoginFunction) {
           </div>
         </nav>
       `;
-    // Attach event listener for logout
+    // event listener for logout
     const logoutLink = document.getElementById("loginLogoutLink");
     logoutLink.addEventListener("click", () => {
       // Remove the authentication token
@@ -221,14 +221,13 @@ function updateNavbarForProfile(authenticationToken, navLoginFunction) {
   }
 }
 
-// Your existing logic for other pages
+// existing logic for other pages
 function updateNavbarForOtherPages(authenticationToken, navLoginFunction) {
-  // Your existing logic
   if (authenticationToken) {
     // Display the logout button
     navLoginFunction.innerHTML = `<a class="nav-link" href="#" id="loginLogoutLink">Log out</a>`;
 
-    // Attach event listener for logout
+    // event listener for logout
     const logoutLink = document.getElementById("loginLogoutLink");
     logoutLink.addEventListener("click", () => {
       // Remove the authentication token
@@ -243,6 +242,6 @@ function updateNavbarForOtherPages(authenticationToken, navLoginFunction) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Call the function to update the navbar
+  // update the navbar
   updateNavbar();
 });
