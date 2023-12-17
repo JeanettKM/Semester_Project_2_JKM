@@ -28,4 +28,4 @@ This project covers the front-end application for the API. The API functionality
 
 ### Planning Applications
 
-- Trello
+- Trello: https://trello.com/invite/b/lRKNQ4yr/ATTI0f2ff139a7009cf753e9e8628d21d7b5EA06BCC9/semester-project-2
