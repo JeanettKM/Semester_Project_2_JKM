@@ -54,8 +54,8 @@ function updateNavbarForListings(authenticationToken, navLoginFunction) {
     logoutLink.addEventListener("click", () => {
       // Remove the authentication token
       localStorage.removeItem("accessToken");
-      // Redirect to index2.html
-      window.location.href = "index2.html";
+      // Redirect to index.html
+      window.location.href = "index.html";
     });
   } else {
     // Display the login button
@@ -75,7 +75,7 @@ function updateNavbarForListings(authenticationToken, navLoginFunction) {
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="index2.html">Log in or Register an account</a>
+                <a class="nav-link" href="index.html">Log in or Register an account</a>
               </li>
             </ul>
           </div>
@@ -121,8 +121,8 @@ function updateNavbarForListingDetail(authenticationToken, navLoginFunction) {
     logoutLink.addEventListener("click", () => {
       // Remove the authentication token
       localStorage.removeItem("accessToken");
-      // Redirect to index2.html
-      window.location.href = "index2.html";
+      // Redirect to index.html
+      window.location.href = "index.html";
     });
   } else {
     // Display the login button
@@ -145,7 +145,7 @@ function updateNavbarForListingDetail(authenticationToken, navLoginFunction) {
           <a class="nav-link" href="listings.html">View Listings</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index2.html" id="loginLogoutLink">Log in or Register</a>
+          <a class="nav-link" href="index.html" id="loginLogoutLink">Log in or Register</a>
         </li>
       </ul>
     </div>
@@ -188,8 +188,8 @@ function updateNavbarForProfile(authenticationToken, navLoginFunction) {
     logoutLink.addEventListener("click", () => {
       // Remove the authentication token
       localStorage.removeItem("accessToken");
-      // Redirect to index2.html
-      window.location.href = "index2.html";
+      // Redirect to index.html
+      window.location.href = "index.html";
     });
   } else {
     // Display the login button
@@ -233,8 +233,8 @@ function updateNavbarForOtherPages(authenticationToken, navLoginFunction) {
     logoutLink.addEventListener("click", () => {
       // Remove the authentication token
       localStorage.removeItem("accessToken");
-      // Redirect to index2.html
-      window.location.href = "index2.html";
+      // Redirect to index.html
+      window.location.href = "index.html";
     });
   } else {
     // Display the login button
