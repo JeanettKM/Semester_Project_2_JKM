@@ -1,0 +1,5 @@
+semesterproject 2 login:
+
+username: jeanettm
+email j.k.m@stud.noroff.no
+passord: kovu1996

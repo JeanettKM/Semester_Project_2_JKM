@@ -1,0 +1,15 @@
+things to do or fix:
+
+fix:
+post listings without image:
+- error: listings.mjs:155 Error creating auction: Error: Invalid URL in the media array
+    at newListing (listings.mjs:178:15)
+    at HTMLFormElement.<anonymous> (listings.mjs:140:13)
+(anonymous) @ listings.mjs:155
+
+
+do:
+- check for chatgpt // and <------->
+- write readme
+- fix footer
+- legge til eller implementere filter funksjonen
