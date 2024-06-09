@@ -32,6 +32,7 @@ https://semesterproject2jkm.netlify.app/
 - Browse and bid on items
 - Editable profile avatar
 
+
 ## Getting Started
 
 Follow these steps to get a local copy of my project:
