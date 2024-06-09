@@ -1,6 +1,6 @@
 # Auction Website Project
 
-![image](/Images/Skjermbilde%202024-06-09%20153521.png)
+![Project Image](/Images/Skjermbilde%202024-06-09%20153521.png)
 
 ## Description
 
@@ -14,15 +14,15 @@ https://semesterproject2jkm.netlify.app/
 
 ## Built With
 
-<img align="left" alt="JavaScript" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/>
+<img align="left" alt="JavaScript" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/> **JavaScript**
 
-<img align="left" alt="HTML5" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg"/>
+<img align="left" alt="HTML5" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg"/> **HTML5**
           
-<img align="left" alt="CSS3" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg"/>
+<img align="left" alt="CSS3" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg"/> **CSS3**
 
-<img align="left" alt="Bootstrap" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/v2.16.0/icons/bootstrap/bootstrap-original.svg"/>
+<img align="left" alt="Bootstrap" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/v2.16.0/icons/bootstrap/bootstrap-original.svg"/> **Bootstrap**
 
-##
+<br clear="left"/>
 
 ## Features
 
@@ -40,9 +40,9 @@ Follow these steps to get a local copy of my project:
 
 1. Clone the repo:
 
-   ```bash
-   git clone https://github.com/JeanettKM/Semester_Project_2_JKM.git
-   ```
+    ```bash
+    git clone https://github.com/JeanettKM/Semester_Project_2_JKM.git
+    ```
 
 ## Dependencies
 
@@ -54,7 +54,7 @@ Open the Zip File/Folder with your preferred Code editor.
 
 ## Tools
 
-Trello was used for planning the project:
+Trello was used for planning the project:  
 [Semester Project 2 Trello Board](https://trello.com/invite/b/lRKNQ4yr/ATTI0f2ff139a7009cf753e9e8628d21d7b5EA06BCC9/semester-project-2)
 
 ## Contributing
@@ -63,7 +63,7 @@ Contributions to this project are not accepted at the moment. But if you have an
 
 ## Contact
 
-Jeanett Melsom - [LinkedIn](https://www.linkedin.com/in/jeanett-melsom-927ab4123/)
+Jeanett K. Melsom - [LinkedIn](https://www.linkedin.com/in/jeanett-melsom-927ab4123/)
 <img align="left" alt="LinkedIn" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
 
 ## License
