@@ -1,5 +1,7 @@
 # Auction Website Project
 
+![image](/Images/Skjermbilde%202024-06-09%20153521.png)
+
 ## Description
 
 The goal of this project is to use the skills I've learned in the past three semesters to build an auction website with the requirements set by the school. This repository has all the code for the site, allowing users to list items for bidding and place bids on items from other users.
