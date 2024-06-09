@@ -1,33 +1,69 @@
 # Auction Website Project
 
-## Goal
+## Description
 
-The goal of this project is to apply the skills learned over the past three semesters to create an auction website.
+The goal of this project is to use the skills I've learned in the past three semesters to build an auction website with the requirements set by the school. This repository has all the code for the site, allowing users to list items for bidding and place bids on items from other users.
 
-## Brief
-
-The auction site aims to launch a website where users can add items for bidding and bid on items posted by other users. New users are given 1000 credits upon joining, which they can use to bid on items. Credits can be earned by selling items. Non-registered users can browse listings, but only registered users can make bids.
-
-## Requirements
-
-This project covers the front-end application for the API. The API functionality is managed by an existing application, and the API documentation can be found under https://docs.noroff.dev/auctionhouse-endpoints/authentication
-
-### CSS Frameworks
-
-- Bootstrap (>5.0.1)
-
-### Hosting Services
-
-- Netlify: https://semesterproject2jkm.netlify.app/
+Visit the website at:
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0936ca11-25ed-4d82-b38f-898328374662/deploy-status)](https://app.netlify.com/sites/semesterproject2jkm/deploys)
 
-### Used Languages
+https://semesterproject2jkm.netlify.app/
 
-- Javascript
-- CSS
-- HTML
+## Built With
 
-### Planning Applications
+<img align="left" alt="JavaScript" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/>
 
-- Trello: https://trello.com/invite/b/lRKNQ4yr/ATTI0f2ff139a7009cf753e9e8628d21d7b5EA06BCC9/semester-project-2
+<img align="left" alt="HTML5" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg"/>
+          
+<img align="left" alt="CSS3" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg"/>
+
+<img align="left" alt="Bootstrap" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/v2.16.0/icons/bootstrap/bootstrap-original.svg"/>
+
+##
+
+## Features
+
+- Responsive design
+- User registration and login
+- Add items for bidding
+- Browse and bid on items
+- Editable profile avatar
+
+## Getting Started
+
+Follow these steps to get a local copy of my project:
+
+### Installing
+
+1. Clone the repo:
+
+   ```bash
+   git clone https://github.com/JeanettKM/Semester_Project_2_JKM.git
+   ```
+
+## Dependencies
+
+This project utilizes an external API. For more information on the API and its documentation, please visit the [Noroff API Documentation](https://docs.noroff.dev/).
+
+### Running
+
+Open the Zip File/Folder with your preferred Code editor.
+
+## Tools
+
+Trello was used for planning the project:
+[Semester Project 2 Trello Board](https://trello.com/invite/b/lRKNQ4yr/ATTI0f2ff139a7009cf753e9e8628d21d7b5EA06BCC9/semester-project-2)
+
+## Contributing
+
+Contributions to this project are not accepted at the moment. But if you have any suggestions I don't mind you sending me a mail, message, or call.
+
+## Contact
+
+Jeanett Melsom - [LinkedIn](https://www.linkedin.com/in/jeanett-melsom-927ab4123/)
+<img align="left" alt="LinkedIn" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
+
+## License
+
+There is no license needed for this project.
