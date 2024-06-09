@@ -36,13 +36,22 @@ https://semesterproject2jkm.netlify.app/
 
 Follow these steps to get a local copy of my project:
 
+
 ### Installing
 
-1. Clone the repo:
+1. Clone the repository:
 
     ```bash
     git clone https://github.com/JeanettKM/Semester_Project_2_JKM.git
     ```
+
+### Running
+
+To run the app, execute the following command:
+
+```bash
+npm start
+```
 
 ## Dependencies
 
