@@ -58,25 +58,25 @@ npm start
 ## Dependencies
 
 This project utilizes an external API. For more information on the API and its documentation, please visit the [Noroff API Documentation](https://docs.noroff.dev/).
-
+<br>
 ### Running
 
 Open the Zip File/Folder with your preferred Code editor.
-
+<br>
 ## Tools
 
 Trello was used for planning the project:  
 [Semester Project 2 Trello Board](https://trello.com/invite/b/lRKNQ4yr/ATTI0f2ff139a7009cf753e9e8628d21d7b5EA06BCC9/semester-project-2)
-
+<br>
 ## Contributing
 
 Contributions to this project are not accepted at the moment. But if you have any suggestions I don't mind you sending me a mail, message, or call.
-
+<br>
 ## Contact
 
 Jeanett K. Melsom - [LinkedIn](https://www.linkedin.com/in/jeanett-melsom-927ab4123/)
 <img align="left" alt="LinkedIn" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />
-
+<br>
 ## License
 
 There is no license needed for this project.
