@@ -6,6 +6,16 @@
 
 The goal of this project is to use the skills I've learned in the past three semesters to build an auction website with the requirements set by the school. This repository has all the code for the site, allowing users to list items for bidding and place bids on items from other users.
 
+### Features
+
+- Responsive design
+- User registration and login
+- Add items for bidding
+- Browse and bid on items
+- Editable profile avatar
+
+<br>
+
 Visit the website at:
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0936ca11-25ed-4d82-b38f-898328374662/deploy-status)](https://app.netlify.com/sites/semesterproject2jkm/deploys)
@@ -23,16 +33,6 @@ https://semesterproject2jkm.netlify.app/
 <img align="left" alt="Bootstrap" width="30px" style="padding-right:10px;" src="https://raw.githubusercontent.com/devicons/devicon/v2.16.0/icons/bootstrap/bootstrap-original.svg"/> **Bootstrap**
 
 <br clear="left"/>
-
-## Features
-
-- Responsive design
-- User registration and login
-- Add items for bidding
-- Browse and bid on items
-- Editable profile avatar
-
-<br>
 
 ## Getting Started
 
