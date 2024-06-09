@@ -22,6 +22,8 @@ Visit the website at:
 
 https://semesterproject2jkm.netlify.app/
 
+<br>
+
 ## Built With
 
 <img align="left" alt="JavaScript" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/> **JavaScript**
