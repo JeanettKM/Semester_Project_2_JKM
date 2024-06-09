@@ -58,10 +58,7 @@ npm start
 ## Dependencies
 
 This project utilizes an external API. For more information on the API and its documentation, please visit the [Noroff API Documentation](https://docs.noroff.dev/).
-<br>
-### Running
 
-Open the Zip File/Folder with your preferred Code editor.
 <br>
 ## Tools
 
